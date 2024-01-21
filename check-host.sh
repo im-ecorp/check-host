@@ -52,10 +52,9 @@ if [ "$#" -ne 1 ]; then
   echo "Usage: $0 <input_file>"
   exit 1
 fi
-
 # Read IPs from the input file into an array
 input_file=$1
-ips=($(cat "$input_file"))
+ips=($(grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" "$input_file"))
 
 # Array to store request IDs
 request_ids=()
@@ -91,10 +90,6 @@ for request_id in "${request_ids[@]}"; do
     sleep 1
   done
 
-
-# Parse the JSON response and extract IPs
-  #ips2=$(echo "$ping_request" | jq -r '.[][][] |.[2]')
-
 # Output IPs with "TIMEOUT" separately
   timeout_ips=$(echo "$ping_request" | grep "TIMEOUT" | cut -d'"' -f6 | sort -u)
   echo $timeout_ips >> timeout_ips.txt
@@ -102,4 +97,3 @@ for request_id in "${request_ids[@]}"; do
   ok_ips=$(echo "$ping_request" | grep -v "TIMEOUT" | cut -d'"' -f6 | sort -u)
   echo $ok_ips >> ok_ips.txt
 done
-
