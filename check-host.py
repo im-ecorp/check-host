@@ -1,6 +1,7 @@
 import subprocess
 import json
 import time
+import re
 
 # Check if the correct number of arguments is provided
 import sys
@@ -12,7 +13,12 @@ if len(sys.argv) != 2:
 # Read IPs from the input file into a list
 input_file = sys.argv[1]
 with open(input_file, 'r') as file:
-    ips = [ip.strip() for ip in file.readlines()]
+    #ips = [ip.strip() for ip in file.readlines()]
+    content = file.read()
+    # Define a regular expression pattern for matching IP addresses
+    ip_pattern = r'\b(?:\d{1,3}\.){3}\d{1,3}\b'
+    # Use re.findall to find all matches of the IP pattern in the content
+    ips = re.findall(ip_pattern, content)
 
 # List to store request IDs
 request_ids = []
