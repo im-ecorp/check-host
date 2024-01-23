@@ -1,23 +1,33 @@
-# check-host
-check-host multi ip 
+# check-host - (Iran's Node)
+
+* You can use this script to check the ping of a server inside Iran.
 
 
-for use you most to run following command
-
-```bash check-host.sh ip.txt```
-
-
-for easy use run this command
+## Use Bash Script
 
 ```mkdir -p /tmp/check-host/ && cd /tmp/check-host/ && wget https://raw.githubusercontent.com/im-ecorp/check-host/main/check-host.sh```
+* **Run**
+  ```
+  chmod +x check-host.sh
+  ./check-host.sh IP.txt
+  ```
+```IP.txt``` is Your IP list
 
 
-for run powershell script please follow the command
+## Use Python Script
 
-1st run powershell
-then
-```path/to/go/check-host.ps1 ip.txt```
+```
+PATH/TO/GO/python3 check-host.py IP.txt
+```
 
-if you are a python guy run this command
+```PATH/TO/GO``` is Your Path where you downloaded the Script file
 
-```path/to/go/check-host.py ip.txt```
+## Use Powershell Script
+
+First Run Powershell.exe
+
+Then
+```
+PATH/TO/GO/check-host.ps1 IP.txt
+```
+
