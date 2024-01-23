@@ -5,7 +5,10 @@
 
 ## Use Bash Script
 
-```mkdir -p /tmp/check-host/ && cd /tmp/check-host/ && wget https://raw.githubusercontent.com/im-ecorp/check-host/main/check-host.sh```
+```
+mkdir -p /tmp/check-host/ && cd /tmp/check-host/ && wget https://raw.githubusercontent.com/im-ecorp/check-host/main/check-host.sh
+```
+
 * **Run**
   ```
   chmod +x check-host.sh
